@@ -14,7 +14,7 @@ RUN chmod 775 /opt/initializeDB.sh
 
 RUN installUtility install --acceptLicense defaultServer
 
-EXPOSE 9082
+EXPOSE 9080
 
 ENTRYPOINT /opt/initializeDB.sh
 
