@@ -1,4 +1,4 @@
-ROM websphere-liberty:kernel
+FROM websphere-liberty:kernel
 
 COPY server.xml /config/
 
