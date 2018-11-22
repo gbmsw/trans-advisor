@@ -1,14 +1,16 @@
-FROM websphere-liberty:kernel
+ROM websphere-liberty:kernel
 
-COPY ./server.xml /config/
+COPY server.xml /config/
 
-COPY ./binary/application/daytrader-ee7.ear /config/dropins/
+COPY daytrader-ee7.ear /config/dropins/
 
 RUN mkdir /opt/ibm/wlp/usr/shared/resources/Daytrader7SampleDerbyLibs
 
-COPY ./derby-10.10.1.1.jar /opt/ibm/wlp/usr/shared/resources/Daytrader7SampleDerbyLibs
+COPY derby-10.10.1.1.jar /opt/ibm/wlp/usr/shared/resources/Daytrader7SampleDerbyLibs
 
-COPY ./initializeDB.sh /opt
+COPY initializeDB.sh /opt
+
+USER root
 
 RUN chmod 775 /opt/initializeDB.sh
 
